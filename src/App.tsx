@@ -10,15 +10,17 @@ import Contact from './components/contact/Contact';
 const App = () => {
 
   return (
-    <>
+    <div>
       <Header />
-      <Hero />
-      <About />
-      <Portfolio />
-      <Testimonial />
-      <Contact />
+      <main>
+        <Hero />
+        <About />
+        <Portfolio />
+        <Testimonial />
+        <Contact />
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 
