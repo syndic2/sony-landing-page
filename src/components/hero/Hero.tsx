@@ -14,9 +14,18 @@ const Hero = () => {
         <p className='text-[1.5rem] text-[#40394a] leading-[1.6]'>
           Experience as a business owner, YouTuber, & content writer.
         </p>
-        <button className='bg-[#024f9a] rounded-xl px-4 py-3 hover:bg-[#024f9ac7] transition duration-200 pointer mt-6'>
-          <span className='text-white'>Contact Me</span>
-        </button>
+        <div className='flex items-center  gap-x-4 mt-6'>
+          <button className='bg-[#024f9a] rounded-xl px-4 py-3 hover:bg-[#024f9ac7] transition duration-200 cursor-pointer'>
+            <span className='text-[#dfeaff]'>Contact Me</span>
+          </button>
+          <a
+            href='https://media.journoportfolio.com/users/350245/uploads/40f07f47-1d42-485c-8a94-105b1d3be6ad.pdf'
+            target='_blank'
+            className='bg-blue-500 rounded-xl px-4 py-3 hover:bg-[#024f9ac7] transition duration-200 cursor-pointer'
+          >
+            <span className='text-[#dfeaff]'>Get Resume</span>
+          </a>
+        </div>
       </div>
 
       <div className='flex justify-center items-center'>

@@ -28,8 +28,8 @@ const About = () => {
         </div>
       </div>
 
-      <div className='bg-[#dfeaff] px-48 py-20 mt-20'>
-        <h4 className='text-2xl font-medium text-center'>
+      <div className='bg-[#dfeaff] p-48'>
+        <h4 className='text-3xl leading-[45px] font-medium text-center'>
           I have combined experience as a business owner, YouTuber, & content writer. <br />
           Now, I specialize in mixing my love for writing, interest in human behavior, and marketing skills to craft
         </h4>
@@ -40,7 +40,7 @@ const About = () => {
               src="/assets/Landing-Page_.png"
               alt=""
             />
-            <span className='font-semibold text-lg'>Landing Pages</span>
+            <span className='font-semibold text-lg self-end'>Landing Pages</span>
           </div>
 
           <div className='grid auto-rows-auto justify-items-center gap-y-5'>
@@ -49,7 +49,7 @@ const About = () => {
               src="/assets/product-description.png"
               alt=""
             />
-            <span className='font-semibold text-lg'>Product Description</span>
+            <span className='font-semibold text-lg self-end'>Product Description</span>
           </div>
 
           <div className='grid auto-rows-auto justify-items-center gap-y-5'>
@@ -90,8 +90,49 @@ const About = () => {
         </div>
       </div>
 
-      <div className='px-48 py-20 mt-20'>
-
+      <div className='px-48 py-20 mt-10'>
+        <h4 className='text-4xl font-medium text-center'>
+          Tool Proficiencies
+        </h4>
+        <div className='grid grid-cols-4 gap-40 justify-items-center items-center mt-20'>
+          <img
+            className='w-[260px]'
+            src="/assets/WordPress-Logo.png"
+            alt=""
+          />
+          <img
+            className='rounded-lg w-[260px]'
+            src="/assets/mailchimp.png"
+            alt=""
+          />
+          <img
+            className='rounded-lg w-[260px]'
+            src="/assets/Brevo-Review-Social.png"
+            alt=""
+          />
+          <img
+            className='rounded-lg w-[260px]'
+            src="/assets/yoast-seo.png"
+            alt=""
+          />
+        </div>
+        <div className='grid grid-cols-3 gap-x-40 justify-items-center items-center mt-32'>
+          <img
+            className='rounded-lg w-[260px]'
+            src="/assets/semrush-com.png"
+            alt=""
+          />
+          <img
+            className='w-[260px]'
+            src="/assets/GA4_Logo.png"
+            alt=""
+          />
+          <img
+            className='w-[260px]'
+            src="/assets/Canva-logo.png"
+            alt=""
+          />
+        </div>
       </div>
     </section>
   );
