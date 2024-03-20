@@ -1,6 +1,15 @@
-const Hero = () => {
+interface HeroProps {
+  componentRef?: React.LegacyRef<any>;
+}
+
+const Hero = (props: HeroProps) => {
+  const { componentRef } = props;
+
   return (
-    <section className='bg-[#dfeaff] grid grid-cols-2 items-center min-h-[100vh] px-28'>
+    <section
+      ref={componentRef}
+      className='bg-[#dfeaff] grid grid-cols-2 items-center min-h-[100vh] px-28'
+    >
       <div>
         <h2 className='text-[1.5rem] text-[#40394a]'>
           Hi There!
@@ -15,9 +24,13 @@ const Hero = () => {
           Experience as a business owner, YouTuber, & content writer.
         </p>
         <div className='flex items-center  gap-x-4 mt-6'>
-          <button className='bg-[#024f9a] rounded-xl px-4 py-3 hover:bg-[#024f9ac7] transition duration-200 cursor-pointer'>
+          <a
+            href='mailto:wicaksonobagusd@gmail.com'
+            target='_blank'
+            className='bg-[#024f9a] rounded-xl px-4 py-3 hover:bg-[#024f9ac7] transition duration-200 cursor-pointer'
+          >
             <span className='text-[#dfeaff]'>Contact Me</span>
-          </button>
+          </a>
           <a
             href='https://media.journoportfolio.com/users/350245/uploads/40f07f47-1d42-485c-8a94-105b1d3be6ad.pdf'
             target='_blank'

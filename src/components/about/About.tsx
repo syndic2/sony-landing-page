@@ -1,7 +1,14 @@
-const About = () => {
+interface AboutProps {
+  rrcsRef?: React.LegacyRef<any>;
+  aboutRef?: React.LegacyRef<any>;
+}
+
+const About = (props: AboutProps) => {
+  const { rrcsRef, aboutRef } = props;
+
   return (
     <section>
-      <div className='grid grid-cols-2 justify-center items-start px-48 py-20'>
+      <div ref={rrcsRef} className='grid grid-cols-2 justify-center items-start px-48 py-20'>
         <img
           className='w-[550px] mx-auto'
           src="/assets/RRCS Framework.png"
@@ -28,7 +35,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className='bg-[#dfeaff] p-48'>
+      <div ref={aboutRef} className='bg-[#dfeaff] p-48'>
         <h4 className='text-3xl leading-[45px] font-medium text-center'>
           I have combined experience as a business owner, YouTuber, & content writer. <br />
           Now, I specialize in mixing my love for writing, interest in human behavior, and marketing skills to craft

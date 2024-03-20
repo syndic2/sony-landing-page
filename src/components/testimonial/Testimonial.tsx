@@ -13,17 +13,23 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import { TestimonialItemProps, TestimonialItem } from './TestimonialItem';
 
+interface TestimonialProps {
+  componentRef?: React.LegacyRef<any>;
+}
+
 const testimonies: TestimonialItemProps[] = [
   {
     profileImg: 'assets/racketagency_logo.jpeg',
     rate: 5,
     author: 'Racket Agency (Australia)',
+    authorLink: 'https://www.racketagency.com.au/',
     testimony: 'Wicaksono is very easy to work with. He has excellent communication and copywriting skills and delivers high-quality output on time. He is very proactive in providing updates, and I look forward to working with him on future projects.'
   },
   {
     profileImg: 'assets/lan-logo.png',
     rate: 5,
     author: 'Latestanimenews (Austria)',
+    authorLink: 'https://www.latestanimenews.com/',
     testimony: 'Sony had been an excellent writer who consistently produced fresh and engaging articles for our website. With his care and experience, we were actively helped to expand LAN’s brand and content variations.'
   },
   {
@@ -40,7 +46,8 @@ const testimonies: TestimonialItemProps[] = [
   }
 ];
 
-const Testimonial = () => {
+const Testimonial = (props: TestimonialProps) => {
+  const { componentRef } = props;
   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
 
   const onSwiperPrev = useCallback(() => {
@@ -52,7 +59,7 @@ const Testimonial = () => {
   }, [swiper]);
 
   return (
-    <section>
+    <section ref={componentRef}>
       <div className='bg-[#dfeaff] p-48'>
         <h2 className='text-4xl font-medium text-center'>Testimonies</h2>
         <div className='relative mt-16'>
@@ -78,6 +85,7 @@ const Testimonial = () => {
                     profileImg={item.profileImg}
                     rate={item.rate}
                     author={item.author}
+                    authorLink={item.authorLink}
                     testimony={item.testimony}
                   />
                 </SwiperSlide>

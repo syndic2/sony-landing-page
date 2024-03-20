@@ -16,13 +16,11 @@ export const ImageZoomSlider = (props: ImageZoomSliderProps) => {
         size={24}
         onClick={onClose}
       />
-      <div className={`flex justify-center items-center h-full`}>
-        <img
-          className='w-[550px]'
-          src={selectedImage}
-          alt=""
-        />
-      </div>
+      <img
+        className='overflow-hidden object-contain w-[550px] h-[calc(100%-24px)] m-auto'
+        src={selectedImage}
+        alt=""
+      />
     </div >
   );
 };

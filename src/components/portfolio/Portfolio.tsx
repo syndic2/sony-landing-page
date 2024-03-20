@@ -44,16 +44,17 @@ const portfolios: PortfolioItemProps[] = [
 ];
 
 interface PortfolioProps {
+  componentRef?: React.LegacyRef<any>;
   onPortfolioClick?: (portfolio: PortfolioItemProps) => void;
 }
 
 const Portfolio = (props: PortfolioProps) => {
-  const { onPortfolioClick } = props;
+  const { componentRef, onPortfolioClick } = props;
 
   const onHandlePortfolioClick = (portfolio: PortfolioItemProps) => onPortfolioClick && onPortfolioClick(portfolio);
 
   return (
-    <section>
+    <section ref={componentRef}>
       <div className='bg-[#013568] px-52 py-36'>
         <h2 className='text-4xl text-[#dfeaff] text-center'>My Portfolio's</h2>
         <div className='grid grid-cols-4 gap-x-8 mt-16'>
