@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 import { useScrollToComponent } from './hooks/use-scroll-to-component';
 
-import Header, { HEADER_MENU } from './components/header/Header';
+import Header, { HEADER_MENU, MENU_DATA } from './components/header/Header';
 import Footer from './components/footer/Footer';
+import SidebarMenu from './components/utils/sidebar-menu/SidebarMenu';
 import { ImageZoomSlider } from './components/utils/image-zoom-slider/ImageZoomSlider';
 
 import Hero from './components/hero/Hero';
@@ -13,6 +15,7 @@ import { PortfolioItemProps } from './components/portfolio/PortfolioItem';
 import Testimonial from './components/testimonial/Testimonial';
 
 const App = () => {
+  const [isOpenSidebarMenu, setIsOpenSidebarMenu] = useState<boolean>(false);
   const [selectedPortfolio, setSelectedPortfolio] = useState<PortfolioItemProps | undefined>();
 
   const { componentRef: heroRef, scrollIntoComponent: scrollIntoHero } = useScrollToComponent();
@@ -31,11 +34,18 @@ const App = () => {
 
   const onPortfolioClick = (portfolio: PortfolioItemProps) => setSelectedPortfolio(portfolio);
 
+  const onSidebarMenuClick = () => {
+    setIsOpenSidebarMenu(prevState => !prevState);
+  };
+
   const onCloseImageZoom = () => setSelectedPortfolio(undefined);
 
   return (
     <>
-      <Header onMenuClick={onMenuClick} />
+      <Header
+        onMenuClick={onMenuClick}
+        onSidebarMenuClick={onSidebarMenuClick}
+      />
       <main className='overflow-x-hidden'>
         <Hero componentRef={heroRef} />
         <About
@@ -49,6 +59,29 @@ const App = () => {
         <Testimonial componentRef={testimonialRef} />
       </main>
       <Footer />
+      <SidebarMenu isOpen={isOpenSidebarMenu}>
+        <div className='px-8 py-5'>
+          <ul className='flex flex-col gap-y-6'>
+            {MENU_DATA.map((item, index) => {
+              return (
+                <li
+                  key={`sidebar-menu-${index}`}
+                  onClick={() => onMenuClick(item.type)}
+                  className='text-[#dfeaff]'
+                >
+                  {item.label}
+                </li>
+              );
+            })}
+          </ul>
+          <div className='border-t-2 border-white w-full mt-5'></div>
+          <AiOutlineCloseCircle
+            className='text-white mx-auto mt-5'
+            size={30}
+            onClick={onSidebarMenuClick}
+          />
+        </div>
+      </SidebarMenu>
       <ImageZoomSlider
         selectedImage={selectedPortfolio?.imgPath}
         images={[]}
